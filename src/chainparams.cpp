@@ -115,7 +115,7 @@ public:
         vAlertPubKey = ParseHex("0000098d3ba6ba6e7423fa5cbd6a89e0a9a5348f88d332b44a5cb1a8b7ed2c1eaa335fc8dc4f012cb8241cc0bdafd6ca70c5f5448916e4e6f511bcd746ed57dc50");
         nDefaultPort = 51212;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // CarbonZero starting difficulty is 1 / 2^12
-        nSubsidyHalvingInterval = 210000;
+        nSubsidyHalvingInterval = 2100000;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
@@ -132,13 +132,13 @@ public:
         nModifierUpdateBlock = 615800;
         nZerocoinStartHeight = 10001;
         nZerocoinStartTime = 1936408000; // Sept 8, 2018 12:00:00 AM GMT
-        nBlockEnforceSerialRange = 20000; //Enforce serial range starting this block
-        nBlockRecalculateAccumulators = 908000; //Trigger a recalculation of accumulators
-        nBlockFirstFraudulent = 99999; //First block that bad serials emerged
-        nBlockLastGoodCheckpoint = 0; //Last valid accumulator checkpoint
+        nBlockEnforceSerialRange = 10001; //Enforce serial range starting this block
+        nBlockRecalculateAccumulators = 10001; //Trigger a recalculation of accumulators
+        nBlockFirstFraudulent = 0; //First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 1; //Last valid accumulator checkpoint
         nBlockEnforceInvalidUTXO = 10001; //Start enforcing the invalid UTXO's
-        nInvalidAmountFiltered = 0 * COIN; //Amount of invalid coins filtered through exchanges, that should be considered valid
-        nBlockZerocoinV2 = 10001; //!> The block that zerocoin v2 becomes active - roughly Sept 8, 2018 12:00:00 AM AM GMT
+        nInvalidAmountFiltered = 1 * COIN; //Amount of invalid coins filtered through exchanges, that should be considered valid
+        nBlockZerocoinV2 = 20001; //!> The block that zerocoin v2 becomes active - roughly Sept 8, 2018 12:00:00 AM AM GMT
         nEnforceNewSporkKey = 1535592050; //!> Sporks signed after (GMT): Rejected from launch - must use the new spork key
         nRejectOldSporkKey = 1535592050; //!> Fully reject old spork key after (GMT): Rejected from launch
 
@@ -173,11 +173,11 @@ public:
         assert(hashGenesisBlock == uint256("0x00000ffb95d25cdaf73ffa8aef6f0c0f490de18fd46b0f5777802b2e3fa4d1fd"));
         assert(genesis.hashMerkleRoot == uint256("0xef4dd913979947aa28e91c11c612a7955610a2c3278c194a977d1320b623106f"));
 
-        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "carbonzero.seed.fuzzbawls.pw"));     // Primary DNS Seeder from Fuzzbawls
-        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "carbonzero.seed2.fuzzbawls.pw"));    // Secondary DNS Seeder from Fuzzbawls
-        vSeeds.push_back(CDNSSeedData("coin-server.com", "coin-server.com"));         // Single node address
-        vSeeds.push_back(CDNSSeedData("s3v3nh4cks.ddns.net", "s3v3nh4cks.ddns.net")); // Single node address
-        vSeeds.push_back(CDNSSeedData("178.254.23.111", "178.254.23.111"));           // Single node address
+        //vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "carbonzero.seed.fuzzbawls.pw"));     // Primary DNS Seeder from Fuzzbawls
+        //vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "carbonzero.seed2.fuzzbawls.pw"));    // Secondary DNS Seeder from Fuzzbawls
+        //vSeeds.push_back(CDNSSeedData("coin-server.com", "coin-server.com"));         // Single node address
+        //vSeeds.push_back(CDNSSeedData("s3v3nh4cks.ddns.net", "s3v3nh4cks.ddns.net")); // Single node address
+        //vSeeds.push_back(CDNSSeedData("178.254.23.111", "178.254.23.111"));           // Single node address
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 4311); // Public address WIF starts with "cz"
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
@@ -189,7 +189,7 @@ public:
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
-        fMiningRequiresPeers = true;
+        fMiningRequiresPeers = false;
         fAllowMinDifficultyBlocks = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
@@ -256,15 +256,15 @@ public:
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 43199500 * COIN;
-        nZerocoinStartHeight = 201576;
+        nZerocoinStartHeight = 10001;
         nZerocoinStartTime = 1501776000;
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
         nBlockRecalculateAccumulators = 9908000; //Trigger a recalculation of accumulators
         nBlockFirstFraudulent = 1; //First block that bad serials emerged
-        nBlockLastGoodCheckpoint = 0; //Last valid accumulator checkpoint
+        nBlockLastGoodCheckpoint = 1; //Last valid accumulator checkpoint
         nBlockEnforceInvalidUTXO = 9902850; //Start enforcing the invalid UTXO's
-        nInvalidAmountFiltered = 0; //Amount of invalid coins filtered through exchanges, that should be considered valid
-        nBlockZerocoinV2 = 10000; //!> The block that zerocoin v2 becomes active
+        nInvalidAmountFiltered = 1; //Amount of invalid coins filtered through exchanges, that should be considered valid
+        nBlockZerocoinV2 = 10001; //!> The block that zerocoin v2 becomes active
         nEnforceNewSporkKey = 1535592050; //!> Sporks signed after must use the new spork key - Rejected from launch.
         nRejectOldSporkKey = 1535592050; //!> Reject old spork key - Rejected from launch.
 
